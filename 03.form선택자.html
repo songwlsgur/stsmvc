@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03.form선택자</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    #result{padding: 10px; background: #000; color:#fff;}
+    .choice{background: yellow; border:1px solid red;}
+    .active{background: hotpink;}
+  </style>
+  <script>
+    $(function(){
+      //wrap() 감싸기
+      // $(':button').wrap('<div class=choice></div>');
+      // $('input').wrap('<div class=choice></div>');
+      // $('input[type=radio]').wrap('<div class=choice></div>');
+
+      // attr() 속성 true(체크) false(체크해제)
+      // $('input[type=checkbox]').attr('checked',true);
+      // $('input[type=radio]').attr('checked',true);
+
+      //value -> val()
+      // $('textarea').text('감녕');
+      // $('input[type=text]').val('감녕');
+      // var radioVal=$('input[type=radio]').val();
+      // alert(radioVal);
+
+      // var selectText=$('select option: selected').val(); //값
+      // var selectText=$('select option: selected').text(); //내용
+      // alert(selectText);
+
+      //eq() 인덱스 개념으로 0번째 부터 시작
+      // $('select option:eq(0)').attr('selected', true);
+
+      // $('#result span').text(radioVal);
+
+    })
+  </script>
+</head>
+<body>
+  <div id="result">검색결과: <span></span></div>
+  <form action="">
+    <button>버튼</button><br>
+    <input type="text" value=""><br>
+    <input type="password" value=""><br>
+    <input type="checkbox"><br>
+    <input type="radio" value="감녕"><br>
+    <input type="button" value="버튼"><br>
+    <input type="submit"><br>
+    <input type="reset"><br>
+    <input type="hidden"><br>
+    <textarea name="name" rows="8" cols="80"></textarea><br>
+    <select>
+      <option value="">option1</option>
+      <option value="" selected>option2</option>
+      <option value="">option3</option>
+    </select>
+  </form>
+
+</body>
+</html>

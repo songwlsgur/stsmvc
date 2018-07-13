@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02.선택자</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    #result{padding: 10px; background: #000; color:#fff;}
+    .choice{background: yellow; border:1px solid red;}
+    .active{background: hotpink;}
+  </style>
+  <script>
+    $(function(){
+      //jquery의 선택자는 css의 선택자와 같다.
+      //$('h3').addClass('active');
+      //$('h1,h2,h3').addClass('active');
+      //$('#result span').text('text');//글자를 넣거나 가져올때
+      //$('#result span').html('<strong>text</strong>');//태그를 포함한 내용을 넣거나 가져올때
+      //var spanText=$('#result span').text();//문자가져오기(html은 태그도 가져올 수 있다.)
+      //var h1=$('h1').text().length;//글자수
+
+      //부모찾기
+      //$('p').parent().addClass('active');
+      //$('p').parents('div').addClass('active');
+
+      //자식찾기
+      //$('p').parents('div').children('span:nth-of-type(1)').addClass('active');
+      //$('p').parents('div').find('span:nth-of-type(1)').addClass('active');
+
+      //형제찾기
+      //$('div span:nth-of-type(1)').nextAll().addClass('active');
+      //$('div span:nth-of-type(1)').next().addClass('active');
+      //$('div span:nth-of-type(3)').prev().addClass('active');
+      //$('div span:nth-of-type(3)').prevAll().addClass('active');
+      //$('div span:nth-of-type(2)').siblings().addClass('active');
+
+      //부정
+      $('a').not('.active').css('background','red');
+      //css()는 스타일을 변경하기위해 사용한다.
+
+      /*
+        $(선택자)
+        jquery에서는 요소나 객체를 선택할 때 $(선택자)를 사용한다.
+        객체, 변수일 경우 => $(객체명), $(변수명) 문자열로 감싸지 않는다.
+        요소, 아이디, 클래스등의 기타 선택자는 =>$('선택자') 문자열로 감싸줘야함.(작은따옴표, 큰따옴표 둘다 가능)
+      */
+
+    })
+  </script>
+</head>
+<body>
+  <div id="result">검색결과: <span></span></div>
+  <hr>
+  <!-- h$*6>{제목$} -->
+  <h1>제목1</h1>
+  <h2>제목2</h2>
+  <h3>제목3</h3>
+  <h4>제목4</h4>
+  <h5>제목5</h5>
+  <h6>제목6</h6>
+  <!-- ul>li*3>a>{링크$} -->
+  <ul>
+    <li><a href="" class="active">링크1</a></li>
+    <li><a href="">링크2</a></li>
+    <li><a href="">링크3</a></li>
+  </ul>
+
+  <div>
+    부모입니다.
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+    <div>
+      자식입니다.
+      <p>문장입니다.</p>
+      <span>span1</span>
+      <span>span2</span>
+      <span>span3</span>
+    </div>
+  </div>
+</body>
+</html>

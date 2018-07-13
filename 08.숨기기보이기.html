@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>08.숨기기 보이기</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(function() {
+      //버튼을 클릭했을 때 box의 내용을 숨김처리
+      // $('button').on('click',function(){
+      //   $('.box').hide();
+      // })
+
+      //버튼을 클릭했을 때 box의 내용을 보이게처리
+      // $('button').on('click',function(){
+      //   $('.box').show();
+      // })
+
+      //버튼을 클릭할 때 보이기/숨기기 교차로 수행
+      // $('button').on('click', function() {
+      //   //보여질때는 숨겨주고 숨겨저 있을때는 보여준다
+      //   $('.box').fadeToggle('slow');
+      // })
+
+      /*
+        숨기기/보이기
+        1.show(), hide(), toggle()
+        2.fadeIn(), fadeOut(), fadeToggle() - 투명도 적용
+        3.slideDown(), slideUp(), slideToggle - 슬라이드 형식
+
+        속도 옵션 => ()소괄호 안에 기입한다
+        1.slow, nomal, fast
+        2.숫자로 기입(얼리세컨즈)
+      */
+
+      //조건문으로 수행하기
+      // $('button').on('click',function(){
+      //   if($('.box').css('display')=='none'){ //숨겨져 있다면
+      //     $('.box').fadeIn('fast');
+      //   }else { //보인다면 (block이면)
+      //     $('.box').fadeOut(1000);
+      //   }
+      // })
+
+      var flag=true;
+      $('button').on('click',function(){
+        if(flag){ //숨겨져 있다면
+          $('.box').fadeIn('fast');
+          flag=false;
+        }else { //보인다면 (block이면)
+          $('.box').fadeOut(1000);
+          flag=true;
+        }
+      })
+
+
+
+    })
+  </script>
+</head>
+
+<body>
+  <button>버튼</button>
+  <div class="box on" style="display:none">
+    <p>농업생산성의 제고와 농지의 합리적인 이용을 위하거나 불가피한 사정으로 발생하는 농지의 임대차와 위탁경영은 법률이 정하는 바에 의하여 인정된다.</p>
+  </div>
+</body>
+
+</html>

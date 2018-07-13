@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04.jquery메서드</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .box1 {
+      height: 50px;
+      background: #e5c760;
+    }
+
+    .box2 {
+      margin: 10px;
+      padding: 10px;
+      border: 10px solid red;
+      width: 100px;
+      height: 100px;
+      background: orange;
+    }
+
+    .on {
+      background: #aee32d;
+    }
+  </style>
+  <script>
+    $(function() {
+      //html(), text() 내용추가(내용이 없을때), 변경(기존에 내용삭제하고 새롭게), 가져오기
+      $('box1').text('<h1>제목</h1>');
+      $('box1').html('<h1>제목</h1>');
+
+      //remove() 제거, empty() 비우기
+      $('.box1:nth-child(1)').empty();
+      $('.box1:nth-child(2)').remove();
+
+      // alert() 속성
+      // attr('속성명') 해당속성의 값을 가져온다.
+      // attr('속성명','새로운값') 해당속성의 값을 변경한다
+      var src = $('img').attr('src');
+      $('.filePath').text('파일경로: ' + src);
+      // $('img').attr('src','../images/pooh.png').attr('alt','정지된 푸');
+      $('img').attr({
+        src:'../images/pooh.png',
+        alt:'정지된 푸',
+        width:444
+      });
+
+      //removeAttr()속성제거
+      $('img').removeAttr('width');
+
+      //css() 스타일
+      $('.filePath').css('background','#a7a0b3');
+      $('.filePath').css({
+        width:'50%',
+        height:'100px',
+        background:'#1a1718',
+        color:'#fff'
+      });
+
+      //addClass, removeClass(), toggleClass(), hasClass()
+      $('#classEdit').addClass('on');
+      $('#classEdit').removeClass('on');
+      $('img').on('click',function(){
+        $('#classEdit').toggleClass('on');
+        //hasClass('클래스이름') 요소가 클래스를 가지고 있는지의 여부
+        var flag=$('#classEdit').hasClass('on');
+        alert(flag);
+      })
+
+      //넓이와 높이
+      //append()는 내용(태그포함) 추가하기
+      $('.widthHeight').append(
+        'width: '+$('.box2').width()+'<br>'
+        +'height: '+$('.box2').height()+'<br>'
+
+        +'padding+width: '+$('.box2').innerWidth()+'<br />'
+        +'padding+height: '+$('.box2').innerHeight()+'<br />'
+
+        +'border+padding+width: '+$('.box2').outerWidth()+'<br />'
+        +'border+padding+height: '+$('.box2').outerHeight()+'<br />'
+
+        +'margin+border+padding+height: '+$('.box2').outerWidth(true)+'<br />'
+        +'margin+border+padding+height: '+$('.box2').outerHeight(true)+'<br />'
+      );
+
+
+      //부모 찾기 parents(), parent()
+      // $('.find p').parents('div').css('background','red');
+      // $('.find p').parent('div').css('background','red');
+
+      //자식 찾기 children(), find('찾을 대상입력')
+      // $('.find').children().css('background','red');
+      // $('.find').find('p').css('background','red');
+
+      //형제 찾기 prev(), next(), siblings()
+      // $('.find h3').next().css('background','red');
+      // $('.find div').prev().css('background','red');
+      // $('.find div').siblings().css('background','red');
+
+
+    })
+  </script>
+</head>
+
+<body>
+  <div class="box1 test1"></div>
+  <div class="box1 test2"></div>
+  <img src="../images/pooh.gif" alt="움직이는 푸"></img>
+  <p class="filePath"></p>
+  <div class="box2"></div>
+  <div id="classEdit">클래스 추가 및 제거</div>
+  <p class="widthHeight"></p>
+  <div class="find">
+    <h3>제목1</h3>
+    <div>
+      <h4>제목2</h4>
+      <p>문장입니다.</p>
+      <p>문장입니다.</p>
+    </div>
+  </div>
+</body>
+
+</html>

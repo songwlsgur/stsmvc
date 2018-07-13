@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>06.이벤트</title>
+  <style>
+    #box{width: 300px; height: 300px; border: 1px solid #000; transition: all 0.5s; }
+    #box:hover{border: 1px solid #f00; border-radius:50px;}
+  </style>
+  <script>
+  /*
+    이벤트 사용방법
+    $(선택자).이벤트명(function(){})
+    $(선택자).on(이벤트명,function(){}) //.on()을 사용해서 이벤트를 추가 할 수있다
+
+    마우스 : mousemove, mouseout, mouseleave, mouseenter
+            click, dblclick, mousedown, mouseup
+    키보드 : ketpress, keyup, keydown
+    터치   : touchmove, touchstart, touchend
+    기타   : focus, load, scroll, resize 등
+  */
+
+  $(function(){
+    //기본 이벤트 적용하기
+    // $('#box').click(function(){
+    //   //$(this)는 $('#box')와 같다.
+    //   $(this).text('클릭');
+    // })
+
+    // $('#box').on('click',function(){
+    //   $(this).text('클릭');
+    // })
+
+    $('#box').on({
+      mousemove:function(){$(this).text('mousemove')},
+      mouseout:function(){$(this).text('mouseout')},
+      click:function(){$(this).text('click')},
+      dblclick:function(){$(this).text('dblclick')},
+      touchmove:function(){$(this).text('touchmove')},
+      touchstart:function(){$(this).text('touchstart')},
+    })
+
+    $('input').on('keyup',function(){
+      $('#box').text('keyup');
+      $(this).val('');
+    }).on('keydown',function(){
+      $('#box').text('keydown');
+    }).on('focus',function(){
+      $('#box').text('focus');
+    })
+
+    //마우스를 올렸다가 내렸을 때
+    $('#box').hover(
+      function(){  //마우스를 올렸을때
+        $(this).addClass('hover');
+      },function(){//마우스를 내렸을때
+        $(this).removeClass('hover');
+      }
+    );
+
+    //기본 기능 제거하기
+    $('a').click(function(e){
+      //링크 이동 막기
+      e.preventDefault();
+    })
+  })
+
+  </script>
+</head>
+<body>
+  <div id="box"></div>
+  <input type="text">
+  <a href="http://daum.net">다음으로 이동</a>
+</body>
+</html>

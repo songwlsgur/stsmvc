@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01.jquery선언</title>
+  <!-- 다운로드방식 -->
+  <script src="js/jquery.min.js"></script>
+  <!-- CDN호스트방식 https://cdnjs.com -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    //jquery문법
+    $(document).ready(function(){
+      $('#test2').css('background','red');
+    })
+    //축약형
+    $(function(){
+      $('#test2').css('background','green');
+    })
+
+    //javascript문법
+    //window.onload이벤트는 document요소가 모두 읽히고 난다음에 실행하게 해줌.
+    window.onload=function(){
+      var h1=document.getElementById('test');
+      h1.style.backgroundColor='red';
+    }
+  </script>
+</head>
+<body>
+  <h1 id="test">제목</h1>
+  <h1 id="test2">제목</h1>
+  <script>
+    $('#test2').css('background','pink');
+
+   //요소가 먼저 읽히고 난 다음에는 onload 생략가능
+    var h1=document.getElementById('test');
+    h1.style.backgroundColor='red';
+  </script>
+</body>
+</html>

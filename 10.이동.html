@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>10.이동하기</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <a href="06.이벤트.html">링크로 이동</a>
+  <button onclick="location.href='06.이벤트.html'">버튼으로 이동</button>
+  <button type="button" id="btn1">버튼으로 이동</button>
+  <script>
+    //스크립트로 작성해서 이동
+    $('#btn1').click(function(){
+      location.href='06.이벤트.html';
+    })
+  </script>
+</body>
+</html>

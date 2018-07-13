@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>05.새요소 추가하기</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <style>
+    #wrap {
+      background: pink;
+    }
+
+    .box {
+      border: 1px solid #000;
+    }
+  </style>
+  <script>
+    $(function(){
+      //새로운 객체 생성
+      // $('<h1>$(새요소).붙이는위치(선택요소)</h1>').css({
+      //   background:'black',color:'red'
+      // }).insertBefore('#wrap');
+
+      /*
+        $(새요소).appendTo(선택요소):선택요소의 마지막 자식요소로 새요소 추가
+        $(새요소).prependTo(선택요소):선택요소의 첫 자식요소로 새요소 추가
+        $(새요소).insertAfter(선택요소):선택요소의 이후위치에 형제요소로 새요소 추가
+        $(새요소).insertBefore(선택요소):선택요소의 이전위치에 형제요소로 새요소 추가
+      */
+
+      var newH1=$('<h1>$(새요소).붙이는위치(선택요소)</h1>').css({
+        background:'black',color:'red'
+      });
+
+      $('#wrap').before(newH1);
+      /*
+          $(선택요소).append(새요소): 선택요소의 마지막 자식요소로 새요소 추가
+          $(선택요소).prepend(새요소): 선택요소의 첫 자식요소로 새요소 추가
+          $(선택요소).after(새요소): 선택요소의 이후위치에 형제요소로 새요소 추가
+          $(선택요소).before(새요소): 선택요소의 이전위치에 형제요소로 새요소 추가
+      */
+
+    })
+  </script>
+</head>
+
+<body>
+  <div id="wrap">
+    <div class="box">원래 있는박스</div>
+  </div>
+</body>
+
+</html>
